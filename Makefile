@@ -14,6 +14,9 @@ $(OUTDIR):
 png: $(OUTDIR)/$(FNAME).pdf
 	pdftocairo -png -r $(RES_PPI) -singlefile $(OUTDIR)/$(FNAME).pdf
 
+gif: $(OUTDIR)/$(FNAME).pdf
+	python pdf2gif.py --input ./out/$(FNAME).pdf --output animation.gif --dpi $(RES_PPI)
+
 clean:
 	rm -f $(OUTDIR)/*.aux \
 	      $(OUTDIR)/*.log \
